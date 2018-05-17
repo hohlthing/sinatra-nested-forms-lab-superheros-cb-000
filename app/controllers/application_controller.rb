@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
     post "/teams" do
       @team = Team.new(params[:team])
-      params[:team][:members].map do |details|
+      params[:team][:members].collect do |details|
         SuperHero.new(details)
       end
 
